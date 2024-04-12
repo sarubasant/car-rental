@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FaLocationDot } from "react-icons/fa6";
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
@@ -7,8 +7,10 @@ import {useForm} from 'react-hook-form'
 
 const Home = () => {
   const {register, handleSubmit,formState:{errors}} = useForm();
-  const onSubmit=(data)=>{
-    
+  const [submitMessage, setSubmitMessage] = useState("")
+  const onSubmit=(data,e)=>{
+    setSubmitMessage("Your feedback is received.")
+    e.target.reset();
   }
   return (
     <>
@@ -75,7 +77,7 @@ const Home = () => {
 
                 <Button title='Send' type='submit' />
               </form>
-
+              {submitMessage && <p className='text-center pb-2 text-blue-700 font-bold'>{submitMessage}</p>}
             </div>
             <div className="contact flex-1 flex justify-evenly items-center flex-col ">
               <span><FaLocationDot size={24} /></span>
@@ -86,6 +88,7 @@ const Home = () => {
               <p className='mb-4 md:mb-0'>info@carnepal.com.np</p>
             </div>
           </div>
+          
         </section>
       </div>
     </>
