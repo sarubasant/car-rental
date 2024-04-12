@@ -11,7 +11,7 @@ const Navbar = () => {
         <>
             <nav className={`font-[Roboto] w-full h-16 flex items-center gap-6 justify-between px-4 sticky top-0 z-10 bg-white`}>
                 <div className="left items-center h-full flex">
-                    <div className="logo mb-2"><img src="../../public/logo.png" className='w-[60px] h-[60px]' alt="" /></div>
+                    <div className="logo mb-2"><img src="/static/images/logo.png" className='w-[60px] h-[60px]' alt="" /></div>
                     <Link to="/" className='font-bold text-2xl ml-3'>Car Nepal</Link>
                 </div>
                 <div className='hidden md:flex'><Navitems /></div>

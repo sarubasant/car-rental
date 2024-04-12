@@ -5,7 +5,7 @@ const Footer = () => {
         <>
             <footer className="  flex flex-col md:flex-row gap-6 justify-between bg-black text-gray-400  border border-red-600 p-4 px-6">
                 <div className="left">
-                    <div className="logo mb-2"><img src="../../public/logo.png" className='w-[124px] h-[124px]' alt="" /></div>
+                    <div className="logo mb-2"><img src="/static/images/logo.png" className='w-[124px] h-[124px]' alt="" /></div>
                     <div className="info">
                         <ul>
                             <li className='uppercase font-bold'>Grievance Officer</li>
