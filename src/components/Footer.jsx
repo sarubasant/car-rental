@@ -1,6 +1,14 @@
-import React from 'react'
-
+import React, { useState } from 'react'
+import { useForm, useFormContext, useFormState } from 'react-hook-form'
 const Footer = () => {
+    const { register, formState: {errors}, handleSubmit } = useForm()
+    const [message, setMessage] = useState("")
+    const onSubmit = (data,e)=>{
+        console.log("Thank You")
+        setMessage("Thank You For Subscription")
+        e.target.reset()
+    }
+
     return (
         <>
             <footer className="  flex flex-col md:flex-row gap-6 justify-between bg-black text-gray-400  border border-red-600 p-4 px-6">
@@ -38,8 +46,17 @@ const Footer = () => {
 
                 <div className="right flex flex-col gap-4">
                     <p className='font-bold text-center'>Newsletter</p>
-                    <input type="text" name="" id="" className='rounded-full p-2 border text-black' />
-                    <button className='h-10 hover:bg-blue-400 rounded-full bg-blue-500 text-white'>Subscribe</button>
+                    <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-4'>                  <input  type="text" className='rounded-full p-2 border text-black' placeholder='Email'
+                    {...register("email",{
+                        required: "Email required",
+                        pattern: {value:/^[^\.\s][\w\-]+(\.[\w\-]+)*@([\w-]+\.)+[\w-]{2,}$/gm , message: "Invalid Email"}
+                    })}
+                    />
+                    {errors.email && <p className='text-red-700'>{errors.email.message} </p>}
+                    {message && <p className='text-white'>{message} </p>}
+                    <button type='submit' className='h-10 hover:bg-blue-400 rounded-full bg-blue-500 text-white'>Subscribe</button>
+                    </form>
+  
                 </div>
             </footer>
         </>
