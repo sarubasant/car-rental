@@ -18,7 +18,7 @@ const Navbar = () => {
                 <button className='md:hidden' onClick={() => setMenuOpen(!menuOpen)}><RxHamburgerMenu size={24} className="hamburger cursor-pointer hoverEffect" /></button>
                 {
                     menuOpen && (
-                        <div className='md:hidden absolute w-full right-0 top-16 border bg-white'>
+                        <div className='md:hidden absolute w-full right-0 top-16 border pl-3 bg-white'>
                             <Navitems />
                         </div>
                     )
